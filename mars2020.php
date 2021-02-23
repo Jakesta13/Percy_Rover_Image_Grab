@@ -87,9 +87,9 @@ if (isset($pgcount)){
 	};
 	while ($currentpg != $pgcount){
 		if(isset($search)){
-			$url = "https://mars.nasa.gov/rss/api/?feed=raw_images&category=mars2020&feedtype=json&num=100&page=".$currentpg."&search=".$search."&extended=product_type::".$rawmode."sol=".$sol;
+			$url = "https://mars.nasa.gov/rss/api/?feed=raw_images&category=mars2020&feedtype=json&num=100&page=".$currentpg."&search=".$search."&extended=product_type::".$rawmode."&sol=".$sol;
 		} else{
-			$url = "https://mars.nasa.gov/rss/api/?feed=raw_images&category=mars2020&feedtype=json&num=100&page=".$currentpg."&extended=product_type::".$rawmode."sol=".$sol;
+			$url = "https://mars.nasa.gov/rss/api/?feed=raw_images&category=mars2020&feedtype=json&num=100&page=".$currentpg."&extended=product_type::".$rawmode."&sol=".$sol;
 		};
 		$grab = (json_decode(file_get_contents($url),True)['images']);
 		foreach ($grab as $key => $val) {
