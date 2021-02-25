@@ -1,6 +1,6 @@
 <?php
-$url = "https://mars.nasa.gov/rss/api/?feed=raw_images&category=mars2020&feedtype=json&num=100";
-//$url = "";
+$base_url = "https://mars.nasa.gov/rss/api/?feed=raw_images&category=mars2020&feedtype=json";
+$url = ($base_url."&num=100");
 // Camera Search options and translations:
 // Descent Stage:
 // |EDL_RDCAM - Rover Down-Look Camera
@@ -24,7 +24,9 @@ $url = "https://mars.nasa.gov/rss/api/?feed=raw_images&category=mars2020&feedtyp
 // Setting up the search and raw config
 // Search
 //sol - will make this cleaner when i have more time
-$sol = $argv['3'];
+if (isset($argv['3'])){
+	$sol = $argv['3'];
+};
 //https://www.w3schools.com/Php/func_array_in_array.asp
 $possible_searches = array("RDLC - Rover Down-Look Camera", "RULC - Rover Up-Look Camera", "DDLC - Descent Stage Down-Look Camera", "PULCB - Parachute Up-Look Camera B", "PULCA - Parachute Up-Look Camera A", "MZR - Mastcam-Z-Right", "MZL - Mastcam-Z-Left",  "RHR - Rear Hazcam Right", "RHL - Rear Hazcam Left", "FHR - Front Hazcam Right", "FHL - Front Hazcam Left", "NCR - Navigation Camera Right", "NCL - Navigation Camera Left");
 // probably a better way to do this ...
@@ -85,11 +87,14 @@ if (isset($pgcount)){
 		$search = (str_replace("NCR", "|NAVCAM_RIGHT", $search));
 		$search = (str_replace("NCL", "|NAVCAM_LEFT", $search));
 	};
+	if (! isset($sol)){
+		$sol = "";
+	};
 	while ($currentpg != $pgcount){
 		if(isset($search)){
-			$url = "https://mars.nasa.gov/rss/api/?feed=raw_images&category=mars2020&feedtype=json&num=100&page=".$currentpg."&search=".$search."&extended=product_type::".$rawmode."&sol=".$sol;
+			$url = ($base_url."&num=100&page=".$currentpg."&search=".$search."&extended=product_type::".$rawmode."&sol=".$sol."&extended=sample_type::full,");
 		} else{
-			$url = "https://mars.nasa.gov/rss/api/?feed=raw_images&category=mars2020&feedtype=json&num=100&page=".$currentpg."&extended=product_type::".$rawmode."&sol=".$sol;
+			$url = ($base_url."&num=100&page=".$currentpg."&extended=product_type::".$rawmode."&sol=".$sol."&extended=sample_type::full,");
 		};
 		$grab = (json_decode(file_get_contents($url),True)['images']);
 		foreach ($grab as $key => $val) {

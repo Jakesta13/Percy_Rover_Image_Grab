@@ -30,3 +30,8 @@ sol# is the sol you are requesting images from, optional.
 _NOTE: You must specifiy raw/color if you are trying to select a sol, at the time being._
 
 https://mars.nasa.gov/mars2020/multimedia/raw-images/
+
+## To-do:
+* Allow more flexibility with options (E.g select images per page, and custom page count)
+* Allow arguments in any order by using --option-name (option)
+* Learn more PHP.
