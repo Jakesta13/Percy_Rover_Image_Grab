@@ -57,6 +57,7 @@ if (isset($argv['1'])){
 	echo "Valid options are:\r\n\r\n";
 	foreach ($possible_searches as $key => $val){
 		echo $possible_searches[$key]."\r\n";
+		exit("Need Camera Arguments.");
 	};
 //	echo "\r\n\r\nShowing all results in 10s\r\n";
 //	sleep(10);
