@@ -28,7 +28,7 @@ $url = ($base_url."&num=100");
 foreach ($argv as $value){
 //	$sol = preg_match("/[0-9]+/i", $value);
 	$rawmode = preg_match("/raw/i", $value);
-	$rawmode = preg_match("color", $value);
+	$rawmode = preg_match("/color/i", $value);
 	
 };
 /* if (isset($argv['3'])){
