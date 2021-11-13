@@ -24,8 +24,14 @@ $url = ($base_url."&num=100");
 // Setting up the search and raw config
 // Search
 //sol - will make this cleaner when i have more time
-if (isset($argv['3'])){
+foreach ($argv as $value){
+	$sol = pgrep_match("\[0-9]+\i", $value);
+}
+/* if (isset($argv['3'])){
 	$sol = $argv['3'];
+*/
+if (isset($sol)){
+	print("Sol: ."$sol);
 } else {
 	// https://99webtools.com/blog/extract-website-data-using-php/
 	function getHTML($url,$timeout)
@@ -42,6 +48,7 @@ if (isset($argv['3'])){
 		preg_match("/([0-9]+)sol/i",$html, $match);
 		// pinch of this https://stackoverflow.com/a/9289450
 		$sol = explode('sol', $match);
+		print("sol: ". $sol);
 	}
 };
 //https://www.w3schools.com/Php/func_array_in_array.asp
