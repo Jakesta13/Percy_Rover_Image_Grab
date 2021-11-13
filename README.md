@@ -5,12 +5,6 @@ It's probably poorly written, but it does work.. as tested on a Raspberry Pi 4B
 
 Will update the code when I get more free time.
 
-## Dependancies:
-* [PhantomJS](https://jonnnnyw.github.io/php-phantomjs/)
-* composer
-> install composer via 'sudo apt install composer'
-> Run 'composer require "jonnyw/php-phantomjs:4.*"' in cloned directory before use.
-
 ## Syntax:
 php mars2020.php CAM-Select raw/color sol#
 

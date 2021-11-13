@@ -1,6 +1,4 @@
 <?php
-// https://jonnnnyw.github.io/php-phantomjs/
-use JonnyW\PhantomJs\Client;
 $base_url = "https://mars.nasa.gov/rss/api/?feed=raw_images&category=mars2020&feedtype=json";
 $url = ($base_url."&num=100");
 // Camera Search options and translations:
@@ -39,29 +37,9 @@ foreach ($argv as $value){
 if (isset($sol)){
 	print("Sol: " . $sol);
 } else {
-/*	// https://99webtools.com/blog/extract-website-data-using-php/
-	function getHTML($url,$timeout)
-	{
-		$ch = curl_init($url);
-		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER["BEEP BOOP"]);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURL_FOLLOWLOCATION, true);
-		curl_setopt($ch, CURL_CONNECTTIMEOUT, $timeout);
-		curl_setopt($ch, CURLOPT_FAILONERROR, 1);
-		return @curl_etc($ch);
-		$html = (getHTML("https://jakesta13.github.io/Percy_Rover_Image_Grab/", 10));
-		// and a bit of https://stackoverflow.com/a/47286207
-		preg_match("/([0-9]+)sol/i",$html, $match);
-		// pinch of this https://stackoverflow.com/a/9289450
-		*/
-		// https://stackoverflow.com/a/28506533 - This requires dependancy.
-		$phantom_script= dirname(__FILE__). '/get-sol.js'; 
-		$response =  exec ('phantomjs ' . $phantom_script);
-		$fixed = htmlspecialchars($response);
-		preg_match("/([0-9]+)sol/i",$fixed, $match);
-		$sol = explode('sol', $match);
-		print("sol: ". $sol);
-//	}
+	// grab latest SOL from json
+	$getSOL = (json_decode(file_get_contents($url),True)['images']['0']['sol']);
+	print("getSOL ". $getSOL);
 };
 //https://www.w3schools.com/Php/func_array_in_array.asp
 $possible_searches = array("RDLC - Rover Down-Look Camera", "RULC - Rover Up-Look Camera", "DDLC - Descent Stage Down-Look Camera", "PULCB - Parachute Up-Look Camera B", "PULCA - Parachute Up-Look Camera A", "MZR - Mastcam-Z-Right", "MZL - Mastcam-Z-Left",  "RHR - Rear Hazcam Right", "RHL - Rear Hazcam Left", "FHR - Front Hazcam Right", "FHL - Front Hazcam Left", "NCR - Navigation Camera Right", "NCL - Navigation Camera Left");
@@ -71,11 +49,6 @@ foreach ($argv as $value){
 	if (in_array($value, $clean_searches)){
 		$search = $value;
 	};
-/*if (isset($argv['1'])){
-	if (in_array($argv['1'], $clean_searches)){
-		$search = $argv['1'];
-	};
-*/
 if (isset($search)){
 	print("Search: ". $search);
 } else{
@@ -84,16 +57,14 @@ if (isset($search)){
 	foreach ($possible_searches as $key => $val){
 		echo $possible_searches[$key]."\r\n";
 	};
-//	echo "\r\n\r\nShowing all results in 10s\r\n";
-//	sleep(10);
 	exit("Need Camera Arguments.\n");
 };
-//$search = $argv['1'];
-// Raw Mode
-if (isset($argv['2'])){
+/* if (isset($argv['2'])){
 	if ($argv['2'] == "raw" || $argv['2'] == "color"){
-		$rawmode = $argv['2'];
-	} else{
+*/		$rawmode = $argv['2'];
+if (isset($rawmode)){
+	print("image mode: ". $rawmode);
+} else{
 		echo "Invalid raw setting, options are:\r\nraw, color";
 		echo "Choosing Raw mode automatically in 10s";
 		sleep(10);
@@ -101,6 +72,7 @@ if (isset($argv['2'])){
 } else{
 	$rawmode = "raw";
 };
+
 // // // // //
 if (isset($url)){
 	if ($url != ""){
@@ -156,9 +128,6 @@ if (isset($pgcount)){
 				file_put_contents("images/".$folder_name."/".$grab[$key]['imageid'].".png", fopen($grab[$key]['image_files']['full_res'], 'rb'));
 				echo "\r\n";
 			};
-//			echo ($grab[$key]['image_files']['full_res']."\r\n");
-//			print_r($grab[$key]['imageid']);
-	//		echo $currentpg."\r\n";
 		};
 		$currentpg = ($currentpg + 1);
 	};
