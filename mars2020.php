@@ -60,7 +60,7 @@ if (isset($argv['1'])){
 	};
 //	echo "\r\n\r\nShowing all results in 10s\r\n";
 //	sleep(10);
-	exit("Need Camera Arguments.");
+	exit("Need Camera Arguments.\n");
 };
 //$search = $argv['1'];
 // Raw Mode
