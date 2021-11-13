@@ -49,6 +49,7 @@ foreach ($argv as $value){
 	if (in_array($value, $clean_searches)){
 		$search = $value;
 	};
+};
 if (isset($search)){
 	print("Search: ". $search);
 } else{
@@ -61,7 +62,8 @@ if (isset($search)){
 };
 /* if (isset($argv['2'])){
 	if ($argv['2'] == "raw" || $argv['2'] == "color"){
-*/		$rawmode = $argv['2'];
+				$rawmode = $argv['2'];
+*/
 if (isset($rawmode)){
 	print("image mode: ". $rawmode);
 } else{
