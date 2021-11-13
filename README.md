@@ -8,6 +8,7 @@ Will update the code when I get more free time.
 ## Dependancies:
 * [PhantomJS](https://jonnnnyw.github.io/php-phantomjs/)
 * composer
+> install composer via 'sudo apt install composer'
 > Run 'composer require "jonnyw/php-phantomjs:4.*"' in cloned directory before use.
 
 ## Syntax:
