@@ -1,4 +1,6 @@
 <?php
+// https://jonnnnyw.github.io/php-phantomjs/
+use JonnyW\PhantomJs\Client;
 $base_url = "https://mars.nasa.gov/rss/api/?feed=raw_images&category=mars2020&feedtype=json";
 $url = ($base_url."&num=100");
 // Camera Search options and translations:
@@ -33,7 +35,7 @@ foreach ($argv as $value){
 if (isset($sol)){
 	print("Sol: " . $sol);
 } else {
-	// https://99webtools.com/blog/extract-website-data-using-php/
+/*	// https://99webtools.com/blog/extract-website-data-using-php/
 	function getHTML($url,$timeout)
 	{
 		$ch = curl_init($url);
@@ -47,6 +49,12 @@ if (isset($sol)){
 		// and a bit of https://stackoverflow.com/a/47286207
 		preg_match("/([0-9]+)sol/i",$html, $match);
 		// pinch of this https://stackoverflow.com/a/9289450
+		*/
+		// https://stackoverflow.com/a/28506533 - This requires dependancy.
+		$phantom_script= dirname(__FILE__). '/get-sol.js'; 
+		$response =  exec ('phantomjs ' . $phantom_script);
+		$fixed = htmlspecialchars($response);
+		preg_match("/([0-9]+)sol/i",$fixed, $match);
 		$sol = explode('sol', $match);
 		print("sol: ". $sol);
 	}
