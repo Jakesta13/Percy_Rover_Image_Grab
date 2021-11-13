@@ -26,20 +26,21 @@ $url = ($base_url."&num=100");
 //sol - will make this cleaner when i have more time
 // set up easy args first.
 foreach ($argv as $value){
-//	$sol = preg_match("/[0-9]+/i", $value);
-	$rawmode = preg_match("/raw/i", $value);
-	$rawmode = preg_match("/color/i", $value);
+	preg_match("/[0-9]+/i", $value, $matches);
+	$sol = $matches['1'];
+	preg_match("/raw/i", $value, $matches);
+	$rawmode = $matches['1'];
+	preg_match("/color/i", $value, $matches);
+	$rawmode = $matches['1'];
 	
 };
-/* if (isset($argv['3'])){
-	$sol = $argv['3'];
-*/
 if (isset($sol)){
 	print("Sol: " . $sol);
 } else {
 	// grab latest SOL from json
 	$getSOL = (json_decode(file_get_contents($url),True)['images']['0']['sol']);
-	print("getSOL ". $getSOL);
+	print("getSOL: ". $getSOL);
+	$sol = $getSOL;
 };
 //https://www.w3schools.com/Php/func_array_in_array.asp
 $possible_searches = array("RDLC - Rover Down-Look Camera", "RULC - Rover Up-Look Camera", "DDLC - Descent Stage Down-Look Camera", "PULCB - Parachute Up-Look Camera B", "PULCA - Parachute Up-Look Camera A", "MZR - Mastcam-Z-Right", "MZL - Mastcam-Z-Left",  "RHR - Rear Hazcam Right", "RHL - Rear Hazcam Left", "FHR - Front Hazcam Right", "FHL - Front Hazcam Left", "NCR - Navigation Camera Right", "NCL - Navigation Camera Left");
@@ -64,9 +65,6 @@ if (isset($search)){
 	if ($argv['2'] == "raw" || $argv['2'] == "color"){
 				$rawmode = $argv['2'];
 */
-if (is_int($rawmode)){
-		unset($rawmode);
-};
 if (isset($rawmode)){
 	print("image mode: ". $rawmode);
 } else{
