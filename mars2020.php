@@ -68,8 +68,7 @@ if (isset($rawmode)){
 		echo "Invalid raw setting, options are:\r\nraw, color";
 		echo "Choosing Raw mode automatically in 10s";
 		sleep(10);
-	};
-} else{
+//} else{
 	$rawmode = "raw";
 };
 
