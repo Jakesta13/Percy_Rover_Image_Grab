@@ -76,6 +76,8 @@ foreach ($argv as $value){
 		$search = $argv['1'];
 	};
 */
+if (isset($search)){
+	print("Search: ". $search);
 } else{
 	echo "Invalid Selection, Spaced arguments need commenting with quotations\r\n";
 	echo "Valid options are:\r\n\r\n";
