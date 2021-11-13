@@ -25,7 +25,7 @@ $url = ($base_url."&num=100");
 // Search
 //sol - will make this cleaner when i have more time
 foreach ($argv as $value){
-	$sol = preg_match("\[0-9]+\i", $value);
+	$sol = preg_match("/[0-9]+/i", $value);
 }
 /* if (isset($argv['3'])){
 	$sol = $argv['3'];
