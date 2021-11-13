@@ -37,7 +37,7 @@ if (isset($argv['3'])){
 		curl_setopt($ch, CURL_CONNECTTIMEOUT, $timeout);
 		curl_setopt($ch, CURLOPT_FAILONERROR, 1);
 		return @curl_etc($ch);
-		html = getHTML("https://jakesta13.github.io/Percy_Rover_Image_Grab/", 10));
+		$html = getHTML("https://jakesta13.github.io/Percy_Rover_Image_Grab/", 10));
 		// and a bit of https://stackoverflow.com/a/47286207
 		preg_match("/([0-9]+)sol/i",$html, $match);
 		// pinch of this https://stackoverflow.com/a/9289450
