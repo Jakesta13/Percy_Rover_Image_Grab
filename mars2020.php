@@ -26,9 +26,13 @@ $url = ($base_url."&num=100");
 // Setting up the search and raw config
 // Search
 //sol - will make this cleaner when i have more time
+// set up easy args first.
 foreach ($argv as $value){
 	$sol = preg_match("/[0-9]+/i", $value);
-}
+	$rawmode = preg_match("/raw/i");
+	$rawmode = preg_match("color");
+	
+};
 /* if (isset($argv['3'])){
 	$sol = $argv['3'];
 */
@@ -63,10 +67,15 @@ if (isset($sol)){
 $possible_searches = array("RDLC - Rover Down-Look Camera", "RULC - Rover Up-Look Camera", "DDLC - Descent Stage Down-Look Camera", "PULCB - Parachute Up-Look Camera B", "PULCA - Parachute Up-Look Camera A", "MZR - Mastcam-Z-Right", "MZL - Mastcam-Z-Left",  "RHR - Rear Hazcam Right", "RHL - Rear Hazcam Left", "FHR - Front Hazcam Right", "FHL - Front Hazcam Left", "NCR - Navigation Camera Right", "NCL - Navigation Camera Left");
 // probably a better way to do this ...
 $clean_searches = array("RDLC", "RULC", "DDLC", "PULCB", "PULCA", "MZR", "MZL",  "RHR", "RHL", "FHR", "FHL", "NCR", "NCL");
-if (isset($argv['1'])){
+foreach ($argv as $value){
+	if (in_array($value, $clean_searches)){
+		$search = $value;
+	};
+/*if (isset($argv['1'])){
 	if (in_array($argv['1'], $clean_searches)){
 		$search = $argv['1'];
 	};
+*/
 } else{
 	echo "Invalid Selection, Spaced arguments need commenting with quotations\r\n";
 	echo "Valid options are:\r\n\r\n";
