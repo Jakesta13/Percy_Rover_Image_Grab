@@ -26,6 +26,23 @@ $url = ($base_url."&num=100");
 //sol - will make this cleaner when i have more time
 if (isset($argv['3'])){
 	$sol = $argv['3'];
+} else {
+	// https://99webtools.com/blog/extract-website-data-using-php/
+	function getHTML($url,$timeout)
+	{
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER["BEEP BOOP"]);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURL_FOLLOWLOCATION, true);
+		curl_setopt($ch, CURL_CONNECTTIMEOUT, $timeout);
+		curl_setopt($ch, CURLOPT_FAILONERROR, 1);
+		return @curl_etc($ch);
+		html = getHTML("https://jakesta13.github.io/Percy_Rover_Image_Grab/", 10));
+		// and a bit of https://stackoverflow.com/a/47286207
+		preg_match("/([0-9]+)sol/i",$html, $match);
+		// pinch of this https://stackoverflow.com/a/9289450
+		$sol = explode('sol', $match);
+	}
 };
 //https://www.w3schools.com/Php/func_array_in_array.asp
 $possible_searches = array("RDLC - Rover Down-Look Camera", "RULC - Rover Up-Look Camera", "DDLC - Descent Stage Down-Look Camera", "PULCB - Parachute Up-Look Camera B", "PULCA - Parachute Up-Look Camera A", "MZR - Mastcam-Z-Right", "MZL - Mastcam-Z-Left",  "RHR - Rear Hazcam Right", "RHL - Rear Hazcam Left", "FHR - Front Hazcam Right", "FHL - Front Hazcam Left", "NCR - Navigation Camera Right", "NCL - Navigation Camera Left");
