@@ -64,6 +64,9 @@ if (isset($search)){
 	if ($argv['2'] == "raw" || $argv['2'] == "color"){
 				$rawmode = $argv['2'];
 */
+if (is_int($rawmode)){
+		unset($rawmode);
+};
 if (isset($rawmode)){
 	print("image mode: ". $rawmode);
 } else{
@@ -71,7 +74,6 @@ if (isset($rawmode)){
 		echo "Choosing Raw mode automatically in 10s";
 		sleep(10);
 //} else{
-	$rawmode = "raw";
 };
 
 // // // // //
