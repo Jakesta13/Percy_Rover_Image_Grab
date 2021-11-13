@@ -31,7 +31,7 @@ foreach ($argv as $value){
 	$sol = $argv['3'];
 */
 if (isset($sol)){
-	print("Sol: ."$sol);
+	print("Sol: " . $sol);
 } else {
 	// https://99webtools.com/blog/extract-website-data-using-php/
 	function getHTML($url,$timeout)
