@@ -55,4 +55,5 @@ https://mars.nasa.gov/mars2020/multimedia/raw-images/
 * ~~Allow arguments in any order by using --option-name (option)~~ - DONE!
 * ~~Check SOL if it matches the requested SOL date, otherwise the RSS feed returns all SOLS for requested camera .. oof~~  - DONE!
 * Add a way to select ALL cameras (Good for getting all of the latest SOL images!).
+* Use CURL to download images? benefit to this is a timeout can be added.
 * Learn more PHP.
