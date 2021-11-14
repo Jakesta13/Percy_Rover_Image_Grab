@@ -1,6 +1,6 @@
 # Percy Rover Image Grabber
 This is a really rough script written in PHP.  
-It's probably poorly written, but it does work.. as tested on a Raspberry Pi 4B and a ubuntu1~16.04.12 server.  
+It's probably poorly written*, but it does work.. as tested on a Raspberry Pi 4B and a ubuntu1~16.04.12 server.  
 Will update the code when I get more free time.
 
 Note that you should use the [Mars2020 site](https://mars.nasa.gov/mars2020/multimedia/raw-images/) while choosing what you want to download, as this doesn't grab what options are avaliable (yet?).  
@@ -45,6 +45,7 @@ I tried to make the camera codes as simple as possible, if you have any suggesti
 * raw/color is the processing mode, raw is default if not defined.
 * sol# is the sol you are requesting images from.
 * You can specifiy any argument in any postion, all are optional.
+* 'probably poorly written' in the sense that I'm learning PHP and there are a few things that may have the room for optomization.
 
 ~~_NOTE: You must specifiy raw/color if you are trying to select a sol, at the time being._~~
 
