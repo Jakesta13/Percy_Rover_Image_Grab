@@ -76,7 +76,7 @@ if (isset($search)){
 	foreach ($possible_searches as $key => $val){
 		echo $possible_searches[$key]."\r\n";
 	};
-	exit("Need Camera Arguments.\n");
+	exit("Need Camera Arguments.\n\n");
 };
 if (isset($rawmode)){
 	print("image mode: ". $rawmode . "\n");
