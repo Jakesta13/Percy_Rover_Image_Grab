@@ -2,7 +2,7 @@
 $base_url = "https://mars.nasa.gov/rss/api/?feed=raw_images&category=mars2020&feedtype=json";
 $url = ($base_url."&num=100");
 // Camera Search options and translations:
-// Descent Stage:
+// Entry, Descent and Landing Cameras:
 // |EDL_RDCAM - Rover Down-Look Camera
 // |EDL_RUCAM - Rover Up-Look Camera
 // |EDL_DDCAM - Descent Stage Down-Look Camera
@@ -11,12 +11,24 @@ $url = ($base_url."&num=100");
 // Science Cameras:
 // |MCZ_RIGHT - Mastcam-Z-Right
 // |MCZ_LEFT - Mastcam-Z-Left
+// Engineering Cameras:
 // |REAR_HAZCAM_RIGHT - Rear Hazcam Right
 // |REAR_HAZCAM_LEFT - Rear Hazcam Left
 // |FRONT_HAZCAM_RIGHT_B - Front Hazcam Right
 // |FRONT_HAZCAM_LEFT_B - Front Hazcam Left
 // |NAVCAM_RIGHT - Navigation Camera Right
 // |NAVCAM_LEFT - Navigation Camera Left
+// Cameras not implemented:
+//  Science Cameras:
+// (?) - MEDIA SkyCam
+// (?) - PIXL Micro Context Camera
+// (?) - SHERLOC - WATSON
+// (?) - SHERLOC Contect Imager
+// (?) - SuperCam Remote Micro Imager
+//  Entry, Descent and Landing Cameras:
+// (?) - Lander Vision System Camera
+//  Engineering Cameras:
+// (?) - Sample Caching System (CacheCam)
 // Process Setting
 // &extended=product_type::raw - Raw images
 // &extended=product_type::color - Color-Processed
