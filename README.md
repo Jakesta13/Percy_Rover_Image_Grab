@@ -10,6 +10,8 @@ Will update the code when I get more free time.
 
 php mars2020.php (Cam-select, raw/color, sol#)
 
+e.g: php mars2020.php raw HNAV sol259
+
 CAM-Select, replace with any of the following short codes ~~in caps~~:
 * RDLC - Rover Down-Look Camera
 * RULC - Rover Up-Look Camera
