@@ -39,7 +39,7 @@ $url = ($base_url."&num=100");
 // set up easy args first.
 print_r($argv);
 foreach ($argv as $value){
-	preg_match("/sol[0-9]+/i", $value, $matches);
+	preg_match("/sol([0-9]+)/i", $value, $matches);
 	if (isset($matches['1'])){
 			$sol = $matches['0'];
 	};
