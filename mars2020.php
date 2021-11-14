@@ -64,6 +64,7 @@ $possible_searches = array("RDLC - Rover Down-Look Camera", "RULC - Rover Up-Loo
 // probably a better way to do this ...
 $clean_searches = array("RDLC", "RULC", "DDLC", "PULCB", "PULCA", "MZR", "MZL",  "RHR", "RHL", "FHR", "FHL", "NCR", "NCL");
 foreach ($argv as $value){
+		$value = strtoupper($value);
 	if (in_array($value, $clean_searches)){
 		$search = $value;
 	};
@@ -85,7 +86,6 @@ if (isset($rawmode)){
 		echo "Choosing Raw mode automatically in 5s\n";
 		sleep(5);
 		$rawmode = 'raw';
-//} else{
 };
 
 // // // // //
@@ -103,7 +103,7 @@ if (isset($pgcount)){
 		mkdir('images/', 0777, true);
 	};
 	if(isset($search)){
-		// Because I am still learning PHP, I shall now conduct 13 str_replace operations... sorry.
+		// Because I am still learning PHP, I shall now conduct ~~13~~ a lot of str_replace operations... sorry.
 		$search = (str_replace("RDLC", "|EDL_RDCAM", $search));
 		$search = (str_replace("RULC", "|EDL_RUCAM", $search));
 		$search = (str_replace("DDLC", "|EDL_DDCAM", $search));
