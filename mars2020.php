@@ -176,7 +176,7 @@ if (isset($pgcount)){
 				}else {
 					$camErrCount = ($camErrCount + 1);
 					unset($camAgree);
-					if ($CamErrCount > "10"){
+					if ($camErrCount > "10"){
 						exit ("No images from ". $checkSearch ." camera\n");
 					};
 				};
