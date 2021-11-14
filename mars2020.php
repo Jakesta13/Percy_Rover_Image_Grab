@@ -44,11 +44,11 @@ foreach ($argv as $value){
 			$sol = (str_replace("sol", "", $matches['0']));
 	};
 	preg_match("/raw/i", $value, $matches);
-	if (isset($matches['1'])){
+	if (isset($matches['0'])){
 		$rawmode = $matches['0'];
 	};
 	preg_match("/color/i", $value, $matches);
-	if (isset($matches['1'])){
+	if (isset($matches['0'])){
 		$rawmode = $matches['0'];
 	};
 };
