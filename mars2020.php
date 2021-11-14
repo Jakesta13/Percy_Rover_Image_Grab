@@ -150,11 +150,11 @@ if (isset($pgcount)){
 						if (!file_exists('images/'.$folder_name)) {
 							 mkdir('images/'.$folder_name, 0777, true);
 						};
-					};
-				}else {
-					$errcount = ($errcount + 1);
-					if ($errcount > "10"){
-						exit ("No images to download for SOL".$sol);
+					}else {
+						$errcount = ($errcount + 1);
+						if ($errcount > "10"){
+							exit ("No images to download for SOL".$sol);
+						};
 					};
 				};
 			//			https://stackoverflow.com/a/3938551
