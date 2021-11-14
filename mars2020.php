@@ -165,7 +165,7 @@ if (isset($pgcount)){
 					$errcount = ($errcount + 1);
 					unset($downloadNow);
 					if ($errcount > "10"){
-						exit ("No images to download for SOL".$sol."\n\n");
+						exit ("TEST No images to download for SOL".$sol."\n\n");
 					};
 				};
 			// End SOL Check
