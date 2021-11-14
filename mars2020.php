@@ -173,13 +173,13 @@ if (isset($pgcount)){
 					echo "Getting ".$grab[$key]['imageid']." from ".$grab[$key]['title']."\r\n";
 					file_put_contents("images/".$folder_name."/".$grab[$key]['imageid'].".png", fopen($grab[$key]['image_files']['full_res'], 'rb'));
 					echo "\r\n";
-				}else {
-					$errcount = ($errcount + 1);
-					unset($downloadNow);
-					print("Error count (unset): ". $errcount."\n");
-					if ($errcount > "10"){
-						exit ("No images to download for SOL".$sol."\n");
-					};
+				};
+			}else {
+				$errcount = ($errcount + 1);
+				unset($downloadNow);
+				print("Error count (unset): ". $errcount."\n");
+				if ($errcount > "10"){
+					exit ("No images to download for SOL".$sol."\n");
 				};
 			};
 		};
