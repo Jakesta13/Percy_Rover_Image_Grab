@@ -27,16 +27,16 @@ $url = ($base_url."&num=100");
 // set up easy args first.
 foreach ($argv as $value){
 	preg_match("/[0-9]+/i", $value, $matches);
-	if (isset($matches['1'])){
-		$sol = $matches['1'];
+	if (isset($matches['0'])){
+		$sol = $matches['0'];
 	};
 	preg_match("/raw/i", $value, $matches);
-	if (isset($matches['1'])){
-		$rawmode = $matches['1'];
+	if (isset($matches['0'])){
+		$rawmode = $matches['0'];
 	};
 	preg_match("/color/i", $value, $matches);
-	if (isset($matches['1'])){
-		$rawmode = $matches['1'];
+	if (isset($matches['0'])){
+		$rawmode = $matches['0'];
 	};
 };
 if (isset($sol)){
