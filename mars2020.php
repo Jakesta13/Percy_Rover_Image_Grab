@@ -185,6 +185,7 @@ if (isset($pgcount)){
 			};
 		};
 		$currentpg = ($currentpg + 1);
+		print("Current Page: ".$currentpg."\n");
 
 	};
 };
