@@ -128,6 +128,7 @@ if (isset($pgcount)){
 		$search = (str_replace("HNAV", "|HELI_NAV", $search));
 		$search = (str_replace("HCOL", "|HELI_RTE", $search));
 	};
+	$grab = (json_decode(file_get_contents($url),True)['images']);
 	while ($currentpg != $pgcount){
 		if(isset($search)){
 			$url = ($base_url."&num=100&page=".$currentpg."&search=".$search."&extended=product_type::".$rawmode."&sol=".$sol."&extended=sample_type::full,");
@@ -136,7 +137,7 @@ if (isset($pgcount)){
 		};
 			$errcount = '0';
 			print("Error count (loop): ". $errcount."\n");
-			$grab = (json_decode(file_get_contents($url),True)['images']);
+//			$grab = (json_decode(file_get_contents($url),True)['images']);
 			foreach ($grab as $key => $val) {
 				print("grab?");
 				$solCheck = preg_match("/".$sol."/i", $grab[$key]['sol']);
