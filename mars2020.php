@@ -151,7 +151,7 @@ if (isset($pgcount)){
 						};
 					};
 				}else {
-					$errcount = ($errcount + 1)
+					$errcount = ($errcount + 1);
 					if ($errcount > "10"){
 						exit ("No images to download for SOL".$sol);
 					};
