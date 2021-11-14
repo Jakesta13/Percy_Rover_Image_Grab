@@ -120,6 +120,12 @@ if (isset($pgcount)){
 			$url = ($base_url."&num=100&page=".$currentpg."&extended=product_type::".$rawmode."&sol=".$sol."&extended=sample_type::full,");
 		};
 		$grab = (json_decode(file_get_contents($url),True)['images']);
+		$solCheck = preg_match("/".$sol."/i", $grab['0']['sol']);
+		if (isset($solCheck)){
+			print("There is at least one image with the selected SOL ". $sol .". Downloading");
+		} else {
+			exit("There are no images for selected SOL" . $sol);
+		};
 		foreach ($grab as $key => $val) {
 			$folder_name = ($grab[$key]['title']);
 			// https://stackoverflow.com/a/2303377
