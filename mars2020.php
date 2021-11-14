@@ -166,6 +166,14 @@ if (isset($pgcount)){
 					if ($errcount > "10"){
 						exit ("No images to download for SOL".$sol."\n");
 					};
+				if (! isset($solCheck)){
+					$errcount = ($errcount + 1);
+					unset($downloadNow);
+					print("Error count (extra): ". $errcount."\n");
+					if ($errcount > "10"){
+						exit ("No images to download for SOL".$sol."\n");
+					};
+				};
 				};
 			//			https://stackoverflow.com/a/3938551
 			if (isset($downloadNow)){
