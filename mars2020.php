@@ -40,11 +40,11 @@ foreach ($argv as $value){
 	};
 };
 if (isset($sol)){
-	print("Sol: " . $sol);
+	print("Sol: " . $sol . "/n");
 } else {
 	// grab latest SOL from json
 	$getSOL = (json_decode(file_get_contents($url),True)['images']['0']['sol']);
-	print("getSOL: ". $getSOL);
+	print("getSOL: ". $getSOL . "/n");
 	$sol = $getSOL;
 };
 //https://www.w3schools.com/Php/func_array_in_array.asp
@@ -57,7 +57,7 @@ foreach ($argv as $value){
 	};
 };
 if (isset($search)){
-	print("Search: ". $search);
+	print("Search: ". $search . "/n");
 } else{
 	echo "Invalid Selection, Spaced arguments need commenting with quotations\r\n";
 	echo "Valid options are:\r\n\r\n";
@@ -71,7 +71,7 @@ if (isset($search)){
 				$rawmode = $argv['2'];
 */
 if (isset($rawmode)){
-	print("image mode: ". $rawmode);
+	print("image mode: ". $rawmode . "/n");
 } else{
 		echo "Invalid raw setting, options are:\r\nraw, color";
 		echo "Choosing Raw mode automatically in 5s";
