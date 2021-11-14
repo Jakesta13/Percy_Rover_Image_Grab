@@ -157,6 +157,13 @@ if (isset($pgcount)){
 							exit ("No images to download for SOL".$sol."\n");
 						};
 					};
+				}else {
+					$errcount = ($errcount + 1);
+					print("Error count: ". $errcount."\n");
+					if ($errcount > "10"){
+						exit ("No images to download for SOL".$sol."\n");
+					};
+				};
 				};
 			//			https://stackoverflow.com/a/3938551
 			if (isset($downloadNow)){
