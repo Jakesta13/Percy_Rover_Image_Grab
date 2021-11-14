@@ -37,7 +37,6 @@ $url = ($base_url."&num=100");
 // Search
 //sol - will make this cleaner when i have more time
 // set up easy args first.
-print_r($argv);
 foreach ($argv as $value){
 	preg_match("/sol([0-9]+)/i", $value, $matches);
 	if (isset($matches['1'])){
@@ -59,7 +58,6 @@ if (isset($sol)){
 	$getSOL = (json_decode(file_get_contents($url),True)['images']['0']['sol']);
 	print("getSOL: ". $getSOL . "\n");
 	$sol = $getSOL;
-	print_r("test: ".(json_decode(file_get_contents($url),True)['images']['0']['sol']));
 };
 //https://www.w3schools.com/Php/func_array_in_array.asp
 $possible_searches = array("RDLC - Rover Down-Look Camera", "RULC - Rover Up-Look Camera", "DDLC - Descent Stage Down-Look Camera", "PULCB - Parachute Up-Look Camera B", "PULCA - Parachute Up-Look Camera A", "MZR - Mastcam-Z-Right", "MZL - Mastcam-Z-Left",  "RHR - Rear Hazcam Right", "RHL - Rear Hazcam Left", "FHR - Front Hazcam Right", "FHL - Front Hazcam Left", "NCR - Navigation Camera Right", "NCL - Navigation Camera Left");
@@ -120,9 +118,10 @@ if (isset($pgcount)){
 		$search = (str_replace("NCR", "|NAVCAM_RIGHT", $search));
 		$search = (str_replace("NCL", "|NAVCAM_LEFT", $search));
 	};
-	if (! isset($sol)){
+/*	if (! isset($sol)){
 		$sol = "";
 	};
+*/
 	while ($currentpg != $pgcount){
 		if(isset($search)){
 			$url = ($base_url."&num=100&page=".$currentpg."&search=".$search."&extended=product_type::".$rawmode."&sol=".$sol."&extended=sample_type::full,");
