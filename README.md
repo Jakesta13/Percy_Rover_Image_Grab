@@ -51,4 +51,5 @@ https://mars.nasa.gov/mars2020/multimedia/raw-images/
 * Allow more flexibility with options (E.g select images per page, and custom page count)
 * ~~Allow arguments in any order by using --option-name (option)~~ - DONE!
 * ~~Check SOL if it matches the requested SOL date, otherwise the RSS feed returns all SOLS for requested camera .. oof~~  - DONE!
+* Add a way to select ALL cameras (Good for getting all of the latest SOL images!).
 * Learn more PHP.
