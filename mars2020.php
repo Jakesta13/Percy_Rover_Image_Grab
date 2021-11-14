@@ -166,8 +166,8 @@ if (isset($pgcount)){
 					echo "\r\n";
 				};
 			};
-			$currentpg = ($currentpg + 1);
 		};
+		$currentpg = ($currentpg + 1);
 
 	};
 };
