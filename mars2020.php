@@ -58,7 +58,7 @@ if (isset($sol)){
 	$getSOL = (json_decode(file_get_contents($url),True)['images']['0']['sol']);
 	print("getSOL: ". $getSOL . "\n");
 	$sol = $getSOL;
-	print_r("test: ".(json_decode(file_get_contents($url),True)['images']['0']['sol']);
+	print_r("test: ".(json_decode(file_get_contents($url),True)['images']['0']['sol']));
 };
 //https://www.w3schools.com/Php/func_array_in_array.asp
 $possible_searches = array("RDLC - Rover Down-Look Camera", "RULC - Rover Up-Look Camera", "DDLC - Descent Stage Down-Look Camera", "PULCB - Parachute Up-Look Camera B", "PULCA - Parachute Up-Look Camera A", "MZR - Mastcam-Z-Right", "MZL - Mastcam-Z-Left",  "RHR - Rear Hazcam Right", "RHL - Rear Hazcam Left", "FHR - Front Hazcam Right", "FHL - Front Hazcam Left", "NCR - Navigation Camera Right", "NCL - Navigation Camera Left");
