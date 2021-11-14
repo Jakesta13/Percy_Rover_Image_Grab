@@ -20,8 +20,8 @@ $url = ($base_url."&num=100");
 // Engineering Cameras:
 // |REAR_HAZCAM_RIGHT - Rear Hazcam Right
 // |REAR_HAZCAM_LEFT - Rear Hazcam Left
-// |FRONT_HAZCAM_RIGHT_B - Front Hazcam Right
-// |FRONT_HAZCAM_LEFT_B - Front Hazcam Left
+// |FRONT_HAZCAM_RIGHT_A - Front Hazcam Right
+// |FRONT_HAZCAM_LEFT_A - Front Hazcam Left
 // |NAVCAM_RIGHT - Navigation Camera Right
 // |NAVCAM_LEFT - Navigation Camera Left
 // |CACHECAM - Sample Caching System (CacheCam)
@@ -113,8 +113,8 @@ if (isset($pgcount)){
 		$search = (str_replace("MZL", "|MCZ_LEFT", $search));
 		$search = (str_replace("RHR", "|REAR_HAZCAM_RIGHT", $search));
 		$search = (str_replace("RHL", "|REAR_HAZCAM_LEFT", $search));
-		$search = (str_replace("FHR", "|FRONT_HAZCAM_RIGHT", $search));
-		$search = (str_replace("FHL", "|FRONT_HAZCAM_LEFT", $search));
+		$search = (str_replace("FHR", "|FRONT_HAZCAM_RIGHT_A", $search));
+		$search = (str_replace("FHL", "|FRONT_HAZCAM_LEFT_A", $search));
 		$search = (str_replace("NCR", "|NAVCAM_RIGHT", $search));
 		$search = (str_replace("NCL", "|NAVCAM_LEFT", $search));
 		// New Cams added Nov 13 2021
