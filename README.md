@@ -10,7 +10,7 @@ Will update the code when I get more free time.
 
 php mars2020.php (Cam-select, raw/color, sol#)
 
-CAM-Select, replace with any of the following short codes in caps:
+CAM-Select, replace with any of the following short codes ~~in caps~~:
 * RDLC - Rover Down-Look Camera
 * RULC - Rover Up-Look Camera
 * DDLC - Descent Stage Down-Look Camera
