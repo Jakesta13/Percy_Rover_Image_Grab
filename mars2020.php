@@ -127,32 +127,41 @@ if (isset($pgcount)){
 		} else{
 			$url = ($base_url."&num=100&page=".$currentpg."&extended=product_type::".$rawmode."&sol=".$sol."&extended=sample_type::full,");
 		};
-		$grab = (json_decode(file_get_contents($url),True)['images']);
-		$solCheck = preg_match("/".$sol."/i", $grab['0']['sol']);
-		if (isset($solCheck)){
-			if ($solCheck > '0'){
-				print("There is at least one image with the selected SOL ". $sol .". Downloading");
-			} else {
-				exit("There are no images for selected SOL" . $sol);
-			};
-		};
 			foreach ($grab as $key => $val) {
-			$folder_name = ($grab[$key]['title']);
-			// https://stackoverflow.com/a/2303377
-			$folder_name = (preg_replace("/[^A-Za-z0-9 ]/", '', $folder_name));
-			// https://stackoverflow.com/questions/12704613/php-str-replace-replace-spaces-with-underscores
-			$folder_name = (preg_replace('/\s+/', '_', $folder_name));
-			if (!file_exists('images/'.$folder_name)) {
-				 mkdir('images/'.$folder_name, 0777, true);
+				$grab = (json_decode(file_get_contents($url),True)['images']);
+				$solCheck = preg_match("/".$sol."/i", $grab[$key]['sol']);
+				if (isset($solCheck)){
+					if ($solCheck > '0'){
+						$downloadNow = 'yup';
+/*						print("There is at least one image with the selected SOL ". $sol .". Downloading");
+					} else {
+						exit("There are no images for selected SOL" . $sol);
+					};
+				};
+*/
+						$folder_name = ($grab[$key]['title']);
+						// https://stackoverflow.com/a/2303377
+						$folder_name = (preg_replace("/[^A-Za-z0-9 ]/", '', $folder_name));
+						// https://stackoverflow.com/questions/12704613/php-str-replace-replace-spaces-with-underscores
+						$folder_name = (preg_replace('/\s+/', '_', $folder_name));
+						if (!file_exists('images/'.$folder_name)) {
+							 mkdir('images/'.$folder_name, 0777, true);
+						};
+					};
+				} else {
+					$downloadNow = "nope";
+				};
+			//			https://stackoverflow.com/a/3938551
+			if ($downloadNow = "yup"){
+				if (!file_exists("images/".$folder_name."/".$grab[$key]['imageid'].".png")){
+					echo "Getting ".$grab[$key]['imageid']." from ".$grab[$key]['title']."\r\n";
+					file_put_contents("images/".$folder_name."/".$grab[$key]['imageid'].".png", fopen($grab[$key]['image_files']['full_res'], 'rb'));
+					echo "\r\n";
+				};
 			};
-//			https://stackoverflow.com/a/3938551
-			if (!file_exists("images/".$folder_name."/".$grab[$key]['imageid'].".png")){
-				echo "Getting ".$grab[$key]['imageid']." from ".$grab[$key]['title']."\r\n";
-				file_put_contents("images/".$folder_name."/".$grab[$key]['imageid'].".png", fopen($grab[$key]['image_files']['full_res'], 'rb'));
-				echo "\r\n";
-			};
+			$currentpg = ($currentpg + 1);
 		};
-		$currentpg = ($currentpg + 1);
+
 	};
 };
 ?>
