@@ -41,7 +41,7 @@ print_r($argv);
 foreach ($argv as $value){
 	preg_match("/sol([0-9]+)/i", $value, $matches);
 	if (isset($matches['1'])){
-			$sol = $matches['0'];
+			$sol = (str_replace("sol", "", $matches['0']));
 	};
 	preg_match("/raw/i", $value, $matches);
 	if (isset($matches['1'])){
