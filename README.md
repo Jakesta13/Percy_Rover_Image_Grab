@@ -7,6 +7,7 @@ Will update the code when I get more free time.
 
 ## Syntax:
 ~~php mars2020.php CAM-Select raw/color sol#~~
+
 php mars2020.php (Cam-select, raw/color, sol#)
 
 CAM-Select, replace with any of the following short codes in caps:
