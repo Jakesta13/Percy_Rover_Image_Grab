@@ -76,7 +76,7 @@ if (isset($search)){
 	foreach ($possible_searches as $key => $val){
 		echo $possible_searches[$key]."\r\n";
 	};
-	exit("Need Camera Arguments.\n\n");
+	exit("\nNeed Camera Arguments.\n\n");
 };
 if (isset($rawmode)){
 	print("image mode: ". $rawmode . "\n");
@@ -156,14 +156,14 @@ if (isset($pgcount)){
 						$errcount = ($errcount + 1);
 						unset($downloadNow);
 						if ($errcount > "10"){
-							exit ("No images to download for SOL".$sol."\n");
+							exit ("No images to download for SOL".$sol."\n\n");
 						};
 					};
 				}else {
 					$errcount = ($errcount + 1);
 					unset($downloadNow);
 					if ($errcount > "10"){
-						exit ("No images to download for SOL".$sol."\n");
+						exit ("No images to download for SOL".$sol."\n\n");
 					};
 				};
 			// End SOL Check
@@ -177,7 +177,7 @@ if (isset($pgcount)){
 					$camErrCount = ($camErrCount + 1);
 					unset($camAgree);
 					if ($camErrCount > "10"){
-						exit ("No images from ". $checkSearch ." camera\n");
+						exit ("No images from ". $checkSearch ." camera\n\n");
 					};
 				};
 			};
