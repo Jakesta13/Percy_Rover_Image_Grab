@@ -149,11 +149,9 @@ if (isset($pgcount)){
 							 mkdir('images/'.$folder_name, 0777, true);
 						};
 					};
-				} else {
-					$downloadNow = "nope";
 				};
 			//			https://stackoverflow.com/a/3938551
-			if ($downloadNow = "yup"){
+			if (isset($downloadNow)){
 				if (!file_exists("images/".$folder_name."/".$grab[$key]['imageid'].".png")){
 					echo "Getting ".$grab[$key]['imageid']." from ".$grab[$key]['title']."\r\n";
 					file_put_contents("images/".$folder_name."/".$grab[$key]['imageid'].".png", fopen($grab[$key]['image_files']['full_res'], 'rb'));
