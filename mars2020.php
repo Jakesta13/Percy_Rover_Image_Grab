@@ -36,7 +36,6 @@ $url = ($base_url."&num=100");
 // Search
 //sol - will make this cleaner when i have more time
 // set up easy args first.
-print_r($argv);
 foreach ($argv as $value){
 	preg_match("/sol([0-9]+)/i", $value, $matches);
 	if (isset($matches['1'])){
@@ -139,6 +138,7 @@ if (isset($pgcount)){
 			foreach ($grab as $key => $val) {
 				$solCheck = preg_match("/".$sol."/i", $grab[$key]['sol']);
 				if (isset($solCheck)){
+					print_r($solCheck);
 					if ($solCheck > '0'){
 						$downloadNow = 'yup';
 						$folder_name = ($grab[$key]['title']);
