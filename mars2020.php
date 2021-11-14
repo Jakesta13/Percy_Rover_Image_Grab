@@ -164,7 +164,6 @@ if (isset($pgcount)){
 						exit ("No images to download for SOL".$sol."\n");
 					};
 				};
-				};
 			//			https://stackoverflow.com/a/3938551
 			if (isset($downloadNow)){
 				if (!file_exists("images/".$folder_name."/".$grab[$key]['imageid'].".png")){
