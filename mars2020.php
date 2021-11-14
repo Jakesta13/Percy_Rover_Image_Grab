@@ -74,7 +74,7 @@ if (isset($rawmode)){
 	print("image mode: ". $rawmode . "\n");
 } else{
 		echo "Invalid raw setting, options are:\r\nraw, color";
-		echo "Choosing Raw mode automatically in 5s";
+		echo "Choosing Raw mode automatically in 5s\n";
 		sleep(5);
 		$rawmode = 'raw';
 //} else{
