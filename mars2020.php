@@ -61,7 +61,7 @@ if (isset($sol)){
 //https://www.w3schools.com/Php/func_array_in_array.asp
 $possible_searches = array("RDLC - Rover Down-Look Camera", "RULC - Rover Up-Look Camera", "DDLC - Descent Stage Down-Look Camera", "PULCB - Parachute Up-Look Camera B", "PULCA - Parachute Up-Look Camera A", "MZR - Mastcam-Z-Right", "MZL - Mastcam-Z-Left",  "RHR - Rear Hazcam Right", "RHL - Rear Hazcam Left", "FHR - Front Hazcam Right", "FHL - Front Hazcam Left", "NCR - Navigation Camera Right", "NCL - Navigation Camera Left", "SKYC - MEDIA SkyCam", "PIXL - PIXL Micro Context Camera", "SWAT - SHERLOC - WATSON", "SIMGR - SHERLOC Contect Imager", "SCMI - SuperCam Remote Micro Imager", "LVSC - Lander Vision System Camera", "SCS - Sample Caching System (CacheCam)", "HNAV - Navigation Camera", "HCOL - Color Camera");
 // probably a better way to do this ...
-$clean_searches = array("RDLC", "RULC", "DDLC", "PULCB", "PULCA", "MZR", "MZL",  "RHR", "RHL", "FHR", "FHL", "NCR", "NCL", "PIXL", "SKYC", "SWAT", "SIMGR", "SCMI", "LVSC", "SCS", "HNAV", "HCOL");
+$clean_searches = array("ALL", "RDLC", "RULC", "DDLC", "PULCB", "PULCA", "MZR", "MZL",  "RHR", "RHL", "FHR", "FHL", "NCR", "NCL", "PIXL", "SKYC", "SWAT", "SIMGR", "SCMI", "LVSC", "SCS", "HNAV", "HCOL");
 foreach ($argv as $value){
 		$value = strtoupper($value);
 	if (in_array($value, $clean_searches)){
