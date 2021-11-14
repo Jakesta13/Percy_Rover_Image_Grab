@@ -127,6 +127,8 @@ if (isset($pgcount)){
 		$search = (str_replace("SCS", "|CACHECAM", $search));
 		$search = (str_replace("HNAV", "|HELI_NAV", $search));
 		$search = (str_replace("HCOL", "|HELI_RTE", $search));
+		// hacky way to add all cameras to search, will look for a better way some day.
+		$search = (str_replace("ALL", "|EDL_RDCAM|EDL_RUCAM|EDL_DDCAM|EDL_PUCAM2|EDL_PUCAM1|LCAM|MCZ_RIGHT|MCZ_LEFT|SKYCAM|PIXL_MCC|SHERLOC_WATSON|SHERLOC_ACI|SHERLOC_RMI|REAR_HAZCAM_RIGHT|REAR_HAZCAM_LEFT|FRONT_HAZCAM_RIGHT_A|FRONT_HAZCAM_LEFT_A|NAVCAM_RIGHT|NAVCAM_LEFT|CACHECAM|HELI_NAV|HELI_RTE"));
 	};
 	$errcount = '0';
 	$camErrCount = '0';
@@ -168,7 +170,8 @@ if (isset($pgcount)){
 				};
 			// End SOL Check
 			// Camera Check
-			$checkSearch = str_replace("|", "", $search);
+//			$checkSearch = str_replace("|", "", $search);
+			$checkSearch = preg_replace("/^./", "", $search);
 			$camCheck = preg_match("/".$checkSearch."/i", $grab[$key]['camera']['instrument']);
 			if (isset($camCheck)){
 				if ($camCheck > '0'){
