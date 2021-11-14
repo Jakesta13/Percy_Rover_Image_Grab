@@ -8,9 +8,15 @@ $url = ($base_url."&num=100");
 // |EDL_DDCAM - Descent Stage Down-Look Camera
 // |EDL_PUCAM2 - Parachute Up-Look Camera B
 // |EDL_PUCAM1 - Parachute Up-Look Camera A
+// |LCAM - Lander Vision System Camera
 // Science Cameras:
 // |MCZ_RIGHT - Mastcam-Z-Right
 // |MCZ_LEFT - Mastcam-Z-Left
+// |SKYCAM - MEDIA SkyCam
+// |PIXL_MCC - PIXL Micro Context Camera
+// |SHERLOC_WATSON - SHERLOC - WATSON
+// |SHERLOC_ACI - SHERLOC Contect Imager
+// |SHERLOC_RMI - SuperCam Remote Micro Imager
 // Engineering Cameras:
 // |REAR_HAZCAM_RIGHT - Rear Hazcam Right
 // |REAR_HAZCAM_LEFT - Rear Hazcam Left
@@ -18,17 +24,10 @@ $url = ($base_url."&num=100");
 // |FRONT_HAZCAM_LEFT_B - Front Hazcam Left
 // |NAVCAM_RIGHT - Navigation Camera Right
 // |NAVCAM_LEFT - Navigation Camera Left
-// Cameras not implemented:
-//  Science Cameras:
-// (?) - MEDIA SkyCam
-// (?) - PIXL Micro Context Camera
-// (?) - SHERLOC - WATSON
-// (?) - SHERLOC Contect Imager
-// (?) - SuperCam Remote Micro Imager
-//  Entry, Descent and Landing Cameras:
-// (?) - Lander Vision System Camera
-//  Engineering Cameras:
-// (?) - Sample Caching System (CacheCam)
+// |CACHECAM - Sample Caching System (CacheCam)
+// Mars Helicopter Tech Demo Cameras:
+// |HELI_NAV - Navigation Camera
+// |HELI_RTE - Color Camera
 // Process Setting
 // &extended=product_type::raw - Raw images
 // &extended=product_type::color - Color-Processed
@@ -61,9 +60,9 @@ if (isset($sol)){
 	$sol = $getSOL;
 };
 //https://www.w3schools.com/Php/func_array_in_array.asp
-$possible_searches = array("RDLC - Rover Down-Look Camera", "RULC - Rover Up-Look Camera", "DDLC - Descent Stage Down-Look Camera", "PULCB - Parachute Up-Look Camera B", "PULCA - Parachute Up-Look Camera A", "MZR - Mastcam-Z-Right", "MZL - Mastcam-Z-Left",  "RHR - Rear Hazcam Right", "RHL - Rear Hazcam Left", "FHR - Front Hazcam Right", "FHL - Front Hazcam Left", "NCR - Navigation Camera Right", "NCL - Navigation Camera Left");
+$possible_searches = array("RDLC - Rover Down-Look Camera", "RULC - Rover Up-Look Camera", "DDLC - Descent Stage Down-Look Camera", "PULCB - Parachute Up-Look Camera B", "PULCA - Parachute Up-Look Camera A", "MZR - Mastcam-Z-Right", "MZL - Mastcam-Z-Left",  "RHR - Rear Hazcam Right", "RHL - Rear Hazcam Left", "FHR - Front Hazcam Right", "FHL - Front Hazcam Left", "NCR - Navigation Camera Right", "NCL - Navigation Camera Left", "SKYC - MEDIA SkyCam", "PIXL - PIXL Micro Context Camera", "SWAT - SHERLOC - WATSON", "SIMGR - SHERLOC Contect Imager", "SCMI - SuperCam Remote Micro Imager", "LVSC - Lander Vision System Camera", "SCS - Sample Caching System (CacheCam)", "HNAV - Navigation Camera", "HCOL - Color Camera");
 // probably a better way to do this ...
-$clean_searches = array("RDLC", "RULC", "DDLC", "PULCB", "PULCA", "MZR", "MZL",  "RHR", "RHL", "FHR", "FHL", "NCR", "NCL");
+$clean_searches = array("RDLC", "RULC", "DDLC", "PULCB", "PULCA", "MZR", "MZL",  "RHR", "RHL", "FHR", "FHL", "NCR", "NCL", "PIXL", "SKYC", "SWAT", "SIMGR", "SCMI", "LVSC", "SCS", "HNAV", "HCOL");
 foreach ($argv as $value){
 		$value = strtoupper($value);
 	if (in_array($value, $clean_searches)){
@@ -118,11 +117,17 @@ if (isset($pgcount)){
 		$search = (str_replace("FHL", "|FRONT_HAZCAM_LEFT", $search));
 		$search = (str_replace("NCR", "|NAVCAM_RIGHT", $search));
 		$search = (str_replace("NCL", "|NAVCAM_LEFT", $search));
+		// New Cams added Nov 13 2021
+		$search = (str_replace("PIXL", "|PIXL_MCC", $search));
+		$search = (str_replace("SKYC", "|SKYCAM", $search));
+		$search = (str_replace("SWAT", "|SHERLOC_WATSON", $search));
+		$search = (str_replace("SIMGR", "|SHERLOC_ACI", $search));
+		$search = (str_replace("SCMI", "|SHERLOC_RMI", $search));
+		$search = (str_replace("LVSC", "|LCAM", $search));
+		$search = (str_replace("SCS", "|CACHECAM", $search));
+		$search = (str_replace("HNAV", "|HELI_NAV", $search));
+		$search = (str_replace("HCOL", "|HELI_RTE", $search));
 	};
-/*	if (! isset($sol)){
-		$sol = "";
-	};
-*/
 	while ($currentpg != $pgcount){
 		if(isset($search)){
 			$url = ($base_url."&num=100&page=".$currentpg."&search=".$search."&extended=product_type::".$rawmode."&sol=".$sol."&extended=sample_type::full,");
@@ -136,12 +141,6 @@ if (isset($pgcount)){
 				if (isset($solCheck)){
 					if ($solCheck > '0'){
 						$downloadNow = 'yup';
-/*						print("There is at least one image with the selected SOL ". $sol .". Downloading");
-					} else {
-						exit("There are no images for selected SOL" . $sol);
-					};
-				};
-*/
 						$folder_name = ($grab[$key]['title']);
 						// https://stackoverflow.com/a/2303377
 						$folder_name = (preg_replace("/[^A-Za-z0-9 ]/", '', $folder_name));

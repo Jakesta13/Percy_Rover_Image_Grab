@@ -23,7 +23,19 @@ CAM-Select, replace with any of the following short codes ~~in caps~~:
 * FHR - Front Hazcam Right
 * FHL - Front Hazcam Left
 * NCR - Navigation Camera Right
-* NCL - Navigation Camera Left 
+* NCL - Navigation Camera Left
+
+> New Cameras added Nov 13 2021
+
+* SKYC - MEDIA SkyCam
+* PIXL - PIXL Micro Context Camera
+* SWAT - SHERLOC - WATSON
+* SIMGR - SHERLOC Contect Imager
+* SCMI - SuperCam Remote Micro Imager
+* LVSC - Lander Vision System Camera
+* SCS - Sample Caching System (CacheCam)
+* HNAV - Navigation Camera
+* HCOL - Color Camera
 
 > raw/color is the processing mode, raw is default if not defined.
 
