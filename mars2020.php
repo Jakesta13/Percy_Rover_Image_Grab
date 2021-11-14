@@ -130,6 +130,7 @@ if (isset($pgcount)){
 	};
 	$grab = (json_decode(file_get_contents($url),True)['images']);
 	while ($currentpg != $pgcount){
+		print("Current Page: ".$currentpg." / $pgcount\n");
 		if(isset($search)){
 			$url = ($base_url."&num=100&page=".$currentpg."&search=".$search."&extended=product_type::".$rawmode."&sol=".$sol."&extended=sample_type::full,");
 		} else{
@@ -153,7 +154,6 @@ if (isset($pgcount)){
 					}else {
 						$errcount = ($errcount + 1);
 						unset($downloadNow);
-						print("Error count (is set): ". $errcount."\n");
 						if ($errcount > "10"){
 							exit ("No images to download for SOL".$sol."\n");
 						};
@@ -161,7 +161,6 @@ if (isset($pgcount)){
 				}else {
 					$errcount = ($errcount + 1);
 					unset($downloadNow);
-					print("Error count (unset): ". $errcount."\n");
 					if ($errcount > "10"){
 						exit ("No images to download for SOL".$sol."\n");
 					};
@@ -176,14 +175,12 @@ if (isset($pgcount)){
 			}else {
 				$errcount = ($errcount + 1);
 				unset($downloadNow);
-				print("Error count (unset): ". $errcount."\n");
 				if ($errcount > "10"){
 					exit ("No images to download for SOL".$sol."\n");
 				};
 			};
 		};
 		$currentpg = ($currentpg + 1);
-		print("Current Page: ".$currentpg."\n");
 
 	};
 };
