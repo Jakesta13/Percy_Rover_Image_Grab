@@ -128,6 +128,8 @@ if (isset($pgcount)){
 		$search = (str_replace("HNAV", "|HELI_NAV", $search));
 		$search = (str_replace("HCOL", "|HELI_RTE", $search));
 	};
+	$errcount = '0';
+	$camErrCount = '0';
 	$grab = (json_decode(file_get_contents($url),True)['images']);
 	while ($currentpg != $pgcount){
 		print("Current Page: ".$currentpg." / $pgcount\n");
@@ -136,8 +138,8 @@ if (isset($pgcount)){
 		} else{
 			$url = ($base_url."&num=100&page=".$currentpg."&extended=product_type::".$rawmode."&sol=".$sol."&extended=sample_type::full,");
 		};
-			$errcount = '0';
 			foreach ($grab as $key => $val) {
+				// SOL Check
 				$solCheck = preg_match("/".$sol."/i", $grab[$key]['sol']);
 				if (isset($solCheck)){
 					if ($solCheck > '0'){
@@ -164,18 +166,30 @@ if (isset($pgcount)){
 						exit ("No images to download for SOL".$sol."\n");
 					};
 				};
-			//			https://stackoverflow.com/a/3938551
-			if (isset($downloadNow)){
-				if (!file_exists("images/".$folder_name."/".$grab[$key]['imageid'].".png")){
-					echo "Getting ".$grab[$key]['imageid']." from ".$grab[$key]['title']."\r\n";
-					file_put_contents("images/".$folder_name."/".$grab[$key]['imageid'].".png", fopen($grab[$key]['image_files']['full_res'], 'rb'));
-					echo "\r\n";
+			// End SOL Check
+			// Camera Check
+			$checkSearch = str_replace("|", "", $search);
+			$camCheck = preg_match("/".$checkSearch."/i", $grab[$key]['camera']['instrument']);
+			if (isset($camCheck)){
+				if ($camCheck > '0'){
+					$camAgree = 'yup';
+				}else {
+					$camErrCount = ($CamErrCount + 1);
+					unset($camAgree);
+					if ($CamErrCount > "10"){
+						exit ("No images from ". $checkSearch ." camera\n");
+					};
 				};
-			}else {
-				$errcount = ($errcount + 1);
-				unset($downloadNow);
-				if ($errcount > "10"){
-					exit ("No images to download for SOL".$sol."\n");
+			};
+			// End Camera Check
+			//			https://stackoverflow.com/a/3938551
+			if (isset($camAgree)){
+				if (isset($downloadNow)){
+					if (!file_exists("images/".$folder_name."/".$grab[$key]['imageid'].".png")){
+						echo "Getting ".$grab[$key]['imageid']." from ".$grab[$key]['title']."\r\n";
+						file_put_contents("images/".$folder_name."/".$grab[$key]['imageid'].".png", fopen($grab[$key]['image_files']['full_res'], 'rb'));
+						echo "\r\n";
+					};
 				};
 			};
 		};
