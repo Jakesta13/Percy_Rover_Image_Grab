@@ -154,7 +154,7 @@ if (isset($pgcount)){
 					}else {
 						$errcount = ($errcount + 1);
 						unset($downloadNow);
-						print("Error count: ". $errcount."\n");
+						print("Error count (is set): ". $errcount."\n");
 						if ($errcount > "10"){
 							exit ("No images to download for SOL".$sol."\n");
 						};
@@ -162,7 +162,7 @@ if (isset($pgcount)){
 				}else {
 					$errcount = ($errcount + 1);
 					unset($downloadNow);
-					print("Error count: ". $errcount."\n");
+					print("Error count (unset): ". $errcount."\n");
 					if ($errcount > "10"){
 						exit ("No images to download for SOL".$sol."\n");
 					};
