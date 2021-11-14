@@ -98,7 +98,7 @@ if (isset($url)){
 //echo $pgcount;
 $currentpg = "0";
 if (isset($pgcount)){
-	print($pgcount);
+	print("Pages: ".$pgcount. "\n");
 	if (!file_exists('images/')) {
 		mkdir('images/', 0777, true);
 	};
