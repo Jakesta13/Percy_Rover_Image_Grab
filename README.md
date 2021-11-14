@@ -6,11 +6,11 @@ It's probably poorly written, but it does work.. as tested on a Raspberry Pi 4B
 Will update the code when I get more free time.
 
 ## Syntax:
-~~php mars2020.php CAM-Select raw/color sol#~~
+~~`php mars2020.php CAM-Select raw/color sol#`~~
 
-php mars2020.php (Cam-select, raw/color, sol#)
+`php mars2020.php (Cam-select, raw/color, sol#)`
 
-e.g: php mars2020.php raw HNAV sol259
+e.g: `php mars2020.php raw HNAV sol259`
 
 CAM-Select, replace with any of the following short codes ~~in caps~~:
 * RDLC - Rover Down-Look Camera
