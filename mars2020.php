@@ -40,17 +40,17 @@ $url = ($base_url."&num=100");
 print_r($argv);
 foreach ($argv as $value){
 	preg_match("/[0-9]+/i", $value, $matches);
-	print_r($matches};
+	print_r($matches);
 	if ($matches['0'] != 'mars2020.php'){
 			$sol = $matches['0'];
 	};
 	preg_match("/raw/i", $value, $matches);
-	print_r($matches};
+	print_r($matches);
 	if ($matches['0'] != 'mars2020.php'){
 		$rawmode = $matches['0'];
 	};
 	preg_match("/color/i", $value, $matches);
-	print_r($matches};
+	print_r($matches);
 	if ($matches['0'] != 'mars2020.php'){
 		$rawmode = $matches['0'];
 	};
