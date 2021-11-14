@@ -140,7 +140,6 @@ if (isset($pgcount)){
 			foreach ($grab as $key => $val) {
 				$solCheck = preg_match("/".$sol."/i", $grab[$key]['sol']);
 				if (isset($solCheck)){
-					print_r($solCheck);
 					if ($solCheck > '0'){
 						$downloadNow = 'yup';
 						$folder_name = ($grab[$key]['title']);
