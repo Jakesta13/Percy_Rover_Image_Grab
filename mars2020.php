@@ -66,10 +66,6 @@ if (isset($search)){
 	};
 	exit("Need Camera Arguments.\n");
 };
-/* if (isset($argv['2'])){
-	if ($argv['2'] == "raw" || $argv['2'] == "color"){
-				$rawmode = $argv['2'];
-*/
 if (isset($rawmode)){
 	print("image mode: ". $rawmode . "\n");
 } else{
