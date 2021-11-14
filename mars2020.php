@@ -138,6 +138,7 @@ if (isset($pgcount)){
 			print("Error count (loop): ". $errcount."\n");
 			$grab = (json_decode(file_get_contents($url),True)['images']);
 			foreach ($grab as $key => $val) {
+				print("grab?");
 				$solCheck = preg_match("/".$sol."/i", $grab[$key]['sol']);
 				if (isset($solCheck)){
 					print_r($solCheck);
