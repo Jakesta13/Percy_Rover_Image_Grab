@@ -128,6 +128,7 @@ if (isset($pgcount)){
 		} else{
 			$url = ($base_url."&num=100&page=".$currentpg."&extended=product_type::".$rawmode."&sol=".$sol."&extended=sample_type::full,");
 		};
+			$errcount = '0';
 			$grab = (json_decode(file_get_contents($url),True)['images']);
 			foreach ($grab as $key => $val) {
 				$solCheck = preg_match("/".$sol."/i", $grab[$key]['sol']);
@@ -148,6 +149,11 @@ if (isset($pgcount)){
 						if (!file_exists('images/'.$folder_name)) {
 							 mkdir('images/'.$folder_name, 0777, true);
 						};
+					};
+				}else {
+					$errcount = ($errcount + 1)
+					if ($errcount > "10"){
+						exit ("No images to download for SOL".$sol);
 					};
 				};
 			//			https://stackoverflow.com/a/3938551
