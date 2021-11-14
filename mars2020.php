@@ -159,7 +159,7 @@ if (isset($pgcount)){
 						unset($downloadNow);
 						if ($errcount > "10"){
 //							exit ("No images to download for SOL".$sol."\n\n");
-							exit ("No more images to download for Sol" .$sol."\n\n);
+							exit ("No more images to download for Sol" .$sol."\n\n");
 						};
 					};
 				}else {
