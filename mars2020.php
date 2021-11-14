@@ -73,7 +73,7 @@ if (isset($search)){
 if (isset($rawmode)){
 	print("image mode: ". $rawmode . "\n");
 } else{
-		echo "Invalid raw setting, options are:\r\nraw, color";
+		echo "Invalid raw setting, options are:\r\nraw, color\n";
 		echo "Choosing Raw mode automatically in 5s\n";
 		sleep(5);
 		$rawmode = 'raw';
