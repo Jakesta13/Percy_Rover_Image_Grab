@@ -117,12 +117,14 @@ if (isset($pgcount)){
 		};
 		$grab = (json_decode(file_get_contents($url),True)['images']);
 		$solCheck = preg_match("/".$sol."/i", $grab['0']['sol']);
-		if ($solCheck > '0'){
-			print("There is at least one image with the selected SOL ". $sol .". Downloading");
-		} else {
-			exit("There are no images for selected SOL" . $sol);
+		if (isset($solCheck)){
+			if ($solCheck > '0'){
+				print("There is at least one image with the selected SOL ". $sol .". Downloading");
+			} else {
+				exit("There are no images for selected SOL" . $sol);
+			};
 		};
-		foreach ($grab as $key => $val) {
+			foreach ($grab as $key => $val) {
 			$folder_name = ($grab[$key]['title']);
 			// https://stackoverflow.com/a/2303377
 			$folder_name = (preg_replace("/[^A-Za-z0-9 ]/", '', $folder_name));
