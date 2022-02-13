@@ -7,8 +7,7 @@ Note that you should use the [Mars2020 site](https://mars.nasa.gov/mars2020/mult
 This script should be seen as a tool/aid rather than a replacement.
 
 ## Syntax:
-~~`php mars2020.php CAM-Select raw/color sol#`~~
-
+Arguments can be added in any order.
 `php mars2020.php (Cam-select, raw/color, sol#)`
 
 e.g: `php mars2020.php raw HNAV sol259`
@@ -47,15 +46,10 @@ I tried to make the camera codes as simple as possible, if you have any suggesti
 * You can specifiy any argument in any postion, all are optional.
 * 'probably poorly written' in the sense that I'm learning PHP and there are a few things that may have the room for optomization.
 
-~~_NOTE: You must specifiy raw/color if you are trying to select a sol, at the time being._~~
-
 https://mars.nasa.gov/mars2020/multimedia/raw-images/
 
 ## To-do:
 * Allow more flexibility with options (E.g select images per page if possible, and custom page count)
-* ~~Allow arguments in any order by using --option-name (option)~~ - DONE!
-* ~~Check SOL if it matches the requested SOL date, otherwise the RSS feed returns all SOLS for requested camera .. oof~~  - DONE!
-* Add a way to select ALL cameras (Good for getting all of the latest SOL images!).
+* ~~Add a way to select ALL cameras (Good for getting all of the latest SOL images!).~~ - It works, but isn't pretty at the moment
 * Add a way to select all SOLs (Intentionally this time!)
 * Use CURL to download images? benefit to this is a timeout can be added.
-* Learn more PHP.
