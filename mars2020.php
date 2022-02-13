@@ -155,13 +155,21 @@ if (isset($pgcount)){
 				if (isset($solCheck)){
 					if ($solCheck > '0'){
 						$downloadNow = 'yup';
+						// Folder index, organized by SOL date.
+						$folder_index = ($grab[$key]['sol']);
+						$folder_index = (preg_replace("/[^A-Za-z0-9 ]/", '', $folder_index));
+
 						$folder_name = ($grab[$key]['title']);
 						// https://stackoverflow.com/a/2303377
 						$folder_name = (preg_replace("/[^A-Za-z0-9 ]/", '', $folder_name));
 						// https://stackoverflow.com/questions/12704613/php-str-replace-replace-spaces-with-underscores
 						$folder_name = (preg_replace('/\s+/', '_', $folder_name));
 						if (!file_exists('images/'.$folder_name)) {
-							 mkdir('images/'.$folder_name, 0777, true);
+							if (!file_exists('images/'.$folder_index)){
+								mkdir('images/'.$folder_index, 0777, true);
+
+							};
+							 mkdir('images/'.$folder_index.'/'.$folder_name, 0777, true);
 						};
 					}else {
 						$errcount = ($errcount + 1);
