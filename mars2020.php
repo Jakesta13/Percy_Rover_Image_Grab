@@ -158,10 +158,10 @@ if (isset($pgcount)){
 						// Folder index, organized by SOL date.
 						$folder_index = ("sol".$grab[$key]['sol']);
 						$folder_index = (preg_replace("/[^A-Za-z0-9 ]/", '', $folder_index));
-						if (!file_exists('images/'.$folder_index)){
+//						if (!file_exists('images/'.$folder_index)){
 							mkdir('images/'.$folder_index, 0777, true);
-							print_r($folder_index);
-						};
+//							print_r($folder_index);
+//						};
 
 						$folder_name = ($grab[$key]['title']);
 						// https://stackoverflow.com/a/2303377
