@@ -206,9 +206,9 @@ if (isset($pgcount)){
 			//			https://stackoverflow.com/a/3938551
 			if (isset($camAgree)){
 				if (isset($downloadNow)){
-					if (!file_exists("images/".$folder_name."/".$grab[$key]['imageid'].".png")){
+					if (!file_exists("images/".$folder_index.'/'.$folder_name."/".$grab[$key]['imageid'].".png")){
 						echo "Getting ".$grab[$key]['imageid']." from ".$grab[$key]['title']."\r\n";
-						file_put_contents("images/".$folder_name."/".$grab[$key]['imageid'].".png", fopen($grab[$key]['image_files']['full_res'], 'rb'));
+						file_put_contents("images/".$folder_index.'/'.$folder_name."/".$grab[$key]['imageid'].".png", fopen($grab[$key]['image_files']['full_res'], 'rb'));
 						echo "\r\n";
 					};
 				};
