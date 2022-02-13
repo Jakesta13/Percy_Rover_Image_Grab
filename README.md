@@ -53,3 +53,4 @@ https://mars.nasa.gov/mars2020/multimedia/raw-images/
 * ~~Add a way to select ALL cameras (Good for getting all of the latest SOL images!).~~ - It works, but isn't pretty at the moment
 * Add a way to select all SOLs (Intentionally this time!)
 * Use CURL to download images? benefit to this is a timeout can be added.
+* Fix sol checking to not allow downloads from sols with partial matches (E.g 'sol3' somehow downloads images from sol349)
