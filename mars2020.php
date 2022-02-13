@@ -157,6 +157,9 @@ if (isset($pgcount)){
 						$downloadNow = 'yup';
 						// Folder index, organized by SOL date.
 						$folder_index = ($grab[$key]['sol']);
+						if (!file_exists('images/'.$folder_index)){
+							mkdir('images/'.$folder_index, 0777, true);
+						};
 						$folder_index = (preg_replace("/[^A-Za-z0-9 ]/", '', $folder_index));
 
 						$folder_name = ($grab[$key]['title']);
@@ -165,10 +168,6 @@ if (isset($pgcount)){
 						// https://stackoverflow.com/questions/12704613/php-str-replace-replace-spaces-with-underscores
 						$folder_name = (preg_replace('/\s+/', '_', $folder_name));
 						if (!file_exists('images/'.$folder_name)) {
-							if (!file_exists('images/'.$folder_index)){
-								mkdir('images/'.$folder_index, 0777, true);
-
-							};
 							 mkdir('images/'.$folder_index.'/'.$folder_name, 0777, true);
 						};
 					}else {
@@ -208,7 +207,7 @@ if (isset($pgcount)){
 				if (isset($downloadNow)){
 					if (!file_exists("images/".$folder_index.'/'.$folder_name."/".$grab[$key]['imageid'].".png")){
 						echo "Getting ".$grab[$key]['imageid']." from ".$grab[$key]['title']."\r\n";
-						file_put_contents("images/".$folder_index.'/'.$folder_name."/".$grab[$key]['imageid'].".png", fopen($grab[$key]['image_files']['full_res'], 'rb'));
+						file_put_contents("images/".$folder_index."/".$folder_name."/".$grab[$key]['imageid'].".png", fopen($grab[$key]['image_files']['full_res'], 'rb'));
 						echo "\r\n";
 					};
 				};
