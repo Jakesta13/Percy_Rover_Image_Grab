@@ -102,7 +102,13 @@ if (isset($pgcount)){
 	if (!file_exists('images/')) {
 		mkdir('images/', 0777, true);
 	};
-	if(isset($search)){
+	// Behold some more optimization .. added Feb 13 2022
+	//E.g RDLC -> |EDL_RDCAM. Array is indexed at 0, each entry translates syntax to required name for http request.
+	// Might be a pain to update these if needed, but for now this will do.
+	$camDB = (json_decode('[{"RDLC":"EDL_RDCAM","RULC":"EDL_RUCAM","DDLC":"EDL_DDCAM","PULCA":"EDL_PUCAM1","PULCB":"EDL_PUCAM2","MZR":"MCZ_RIGHT","MZL":"MCZ_LEFT","RHR":"REAR_HAZCAM_RIGHT","RHL":"REAR_HAZCAM_LEFT","FHR":"FRONT_HAZCAM_RIGHT_A","FHL":"FRONT_HAZCAM_LEFT_A","NCR":"NAVCAM_RIGHT","NCL":"NAVCAM_LEFT","PIXL":"PIXL_MCC","SKYC":"SKYCAM","SWAT":"SHERLOC_WATSON","SIMGR":"SHERLOC_ACI","SCMI":"SHERLOC_RMI","LVSC":"LCAM","SCS":"CACHECAM","HNAV":"HELI_NAV","HCOL":"HELI_RTE"}]')), True;
+	$search = ("|".$camDB['0'][$search]);
+	// Will remove the below once the above proves to work.
+/*	if(isset($search)){
 		// Because I am still learning PHP, I shall now conduct ~~13~~ a lot of str_replace operations... sorry.
 		$search = (str_replace("RDLC", "|EDL_RDCAM", $search));
 		$search = (str_replace("RULC", "|EDL_RUCAM", $search));
@@ -130,6 +136,7 @@ if (isset($pgcount)){
 		// hacky way to add all cameras to search, will look for a better way some day.
 		$search = (str_replace("ALL", "|EDL_RDCAM|EDL_RUCAM|EDL_DDCAM|EDL_PUCAM2|EDL_PUCAM1|LCAM|MCZ_RIGHT|MCZ_LEFT|SKYCAM|PIXL_MCC|SHERLOC_WATSON|SHERLOC_ACI|SHERLOC_RMI|REAR_HAZCAM_RIGHT|REAR_HAZCAM_LEFT|FRONT_HAZCAM_RIGHT_A|FRONT_HAZCAM_LEFT_A|NAVCAM_RIGHT|NAVCAM_LEFT|CACHECAM|HELI_NAV|HELI_RTE", $search));
 	};
+*/
 	$errcount = '0';
 	$camErrCount = '0';
 	$grab = (json_decode(file_get_contents($url),True)['images']);
