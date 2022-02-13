@@ -44,7 +44,7 @@ I tried to make the camera codes as simple as possible, if you have any suggesti
 * raw/color is the processing mode, raw is default if not defined.
 * sol# is the sol you are requesting images from.
 * You can specifiy any argument in any postion, all are optional.
-* 'probably poorly written' in the sense that I'm learning PHP and there are a few things that may have the room for optomization.
+* 'probably poorly written' in the sense that I'm learning PHP and there are a few things that may have the room for optimization.
 
 https://mars.nasa.gov/mars2020/multimedia/raw-images/
 
