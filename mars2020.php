@@ -105,7 +105,7 @@ if (isset($pgcount)){
 	// Behold some more optimization .. added Feb 13 2022
 	//E.g RDLC -> |EDL_RDCAM. Array is indexed at 0, each entry translates syntax to required name for http request.
 	// Might be a pain to update these if needed, but for now this will do.
-	$camDB = (json_decode('[{"RDLC":"EDL_RDCAM","RULC":"EDL_RUCAM","DDLC":"EDL_DDCAM","PULCA":"EDL_PUCAM1","PULCB":"EDL_PUCAM2","MZR":"MCZ_RIGHT","MZL":"MCZ_LEFT","RHR":"REAR_HAZCAM_RIGHT","RHL":"REAR_HAZCAM_LEFT","FHR":"FRONT_HAZCAM_RIGHT_A","FHL":"FRONT_HAZCAM_LEFT_A","NCR":"NAVCAM_RIGHT","NCL":"NAVCAM_LEFT","PIXL":"PIXL_MCC","SKYC":"SKYCAM","SWAT":"SHERLOC_WATSON","SIMGR":"SHERLOC_ACI","SCMI":"SHERLOC_RMI","LVSC":"LCAM","SCS":"CACHECAM","HNAV":"HELI_NAV","HCOL":"HELI_RTE"}]')), True;
+	$camDB = (json_decode('[{"RDLC":"EDL_RDCAM","RULC":"EDL_RUCAM","DDLC":"EDL_DDCAM","PULCA":"EDL_PUCAM1","PULCB":"EDL_PUCAM2","MZR":"MCZ_RIGHT","MZL":"MCZ_LEFT","RHR":"REAR_HAZCAM_RIGHT","RHL":"REAR_HAZCAM_LEFT","FHR":"FRONT_HAZCAM_RIGHT_A","FHL":"FRONT_HAZCAM_LEFT_A","NCR":"NAVCAM_RIGHT","NCL":"NAVCAM_LEFT","PIXL":"PIXL_MCC","SKYC":"SKYCAM","SWAT":"SHERLOC_WATSON","SIMGR":"SHERLOC_ACI","SCMI":"SHERLOC_RMI","LVSC":"LCAM","SCS":"CACHECAM","HNAV":"HELI_NAV","HCOL":"HELI_RTE"}]'), True);
 	$search = ("|".$camDB['0'][$search]);
 	// Will remove the below once the above proves to work.
 /*	if(isset($search)){
