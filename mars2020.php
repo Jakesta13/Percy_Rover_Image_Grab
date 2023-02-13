@@ -34,7 +34,7 @@ $url = ($base_url."&num=100");
 
 // Setting up the search and raw config
 // Search
-//sol - will make this cleaner when i have more time
+//sol - will make this cleaner when I have more time
 // set up easy args first.
 foreach ($argv as $value){
 	preg_match("/sol([0-9]+)/i", $value, $matches);
@@ -48,6 +48,12 @@ foreach ($argv as $value){
 	preg_match("/color/i", $value, $matches);
 	if (isset($matches['0'])){
 		$rawmode = $matches['0'];
+	};
+	// Display only Video frames.
+	// This should work, after inspecting the rest of the code along with how Nasa's JSON url works, this should be the same as RAW mode!
+	preg_match("/vframes/i", $value, $matches);
+	if (isset($matches['0'])){
+		$rawmode = "ecv";
 	};
 };
 if (isset($sol)){

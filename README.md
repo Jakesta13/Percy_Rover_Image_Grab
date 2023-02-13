@@ -54,4 +54,5 @@ https://mars.nasa.gov/mars2020/multimedia/raw-images/
 * Add a way to select all SOLs (Intentionally this time!)
 * Use CURL to download images? benefit to this is a timeout can be added.
 * Fix sol checking to not allow downloads from sols with partial matches (E.g 'sol3' somehow downloads images from sol349)
-* Add new filter to show movie frames (Nasa added `&extended=product_id::ecv` to options)
+* ~~Add new filter to show movie frames (Nasa added `&extended=product_id::ecv` to options)~~ This should work, appears to use the same variable as raw mode! So I added an option.
+* Add a catch to prevent conflicting options (Raw Mode! If you specifiy `color`, `raw`, and `vframes` it shouldn't allow that in the future.)
