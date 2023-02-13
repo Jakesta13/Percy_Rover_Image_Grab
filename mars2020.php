@@ -61,6 +61,8 @@ if (isset($sol)){
 //https://www.w3schools.com/Php/func_array_in_array.asp
 $possible_searches = array("RDLC - Rover Down-Look Camera", "RULC - Rover Up-Look Camera", "DDLC - Descent Stage Down-Look Camera", "PULCB - Parachute Up-Look Camera B", "PULCA - Parachute Up-Look Camera A", "MZR - Mastcam-Z-Right", "MZL - Mastcam-Z-Left",  "RHR - Rear Hazcam Right", "RHL - Rear Hazcam Left", "FHR - Front Hazcam Right", "FHL - Front Hazcam Left", "NCR - Navigation Camera Right", "NCL - Navigation Camera Left", "SKYC - MEDIA SkyCam", "PIXL - PIXL Micro Context Camera", "SWAT - SHERLOC - WATSON", "SIMGR - SHERLOC Contect Imager", "SCMI - SuperCam Remote Micro Imager", "LVSC - Lander Vision System Camera", "SCS - Sample Caching System (CacheCam)", "HNAV - Navigation Camera", "HCOL - Color Camera");
 // probably a better way to do this ...
+// This basically searches the arguments for any of the following, if there is no match it will spit out $possible_searches to the user.
+// When adding more cameras you will need to edit $clean_searches, $all, $possible_searches, AND $camDB
 $clean_searches = array("ALL", "RDLC", "RULC", "DDLC", "PULCB", "PULCA", "MZR", "MZL",  "RHR", "RHL", "FHR", "FHL", "NCR", "NCL", "PIXL", "SKYC", "SWAT", "SIMGR", "SCMI", "LVSC", "SCS", "HNAV", "HCOL");
 foreach ($argv as $value){
 		$value = strtoupper($value);
