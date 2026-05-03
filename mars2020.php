@@ -1,5 +1,5 @@
 <?php
-$base_url = "https://mars.nasa.gov/rss/api/?feed=raw_images&category=mars2020&feedtype=json";
+$base_url = "https://mars.nasa.gov/rss/api/?feed=raw_images&category=mars2020,ingenuity&feedtype=json&ver=1.2";
 $url = ($base_url."&num=100");
 // Camera Search options and translations:
 // Entry, Descent and Landing Cameras:
