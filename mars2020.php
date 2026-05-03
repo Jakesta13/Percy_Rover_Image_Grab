@@ -126,9 +126,9 @@ if (isset($pgcount)){
 	while ($currentpg != $pgcount){
 		print("Current Page: ".$currentpg." / $pgcount\n");
 		if(isset($search)){
-			$url = ($base_url."&num=100&page=".$currentpg."&search=".$search."&extended=product_type::".$rawmode."&sol=".$sol."&extended=sample_type::full,");
+			$url = ($base_url."&num=100&page=".$currentpg."&search=".$search."&condition_2=".$sol.":sol:gte&condition_3=".$sol.":sol:lte&extended=sample_type::full,product_type::".$rawmode);
 		} else{
-			$url = ($base_url."&num=100&page=".$currentpg."&extended=product_type::".$rawmode."&sol=".$sol."&extended=sample_type::full,");
+			$url = ($base_url."&num=100&page=".$currentpg."&condition_2=".$sol.":sol:gte&condition_3=".$sol.":sol:lte&extended=sample_type::full,product_type::".$rawmode);
 		};
 			foreach ($grab as $key => $val) {
 				// SOL Check
