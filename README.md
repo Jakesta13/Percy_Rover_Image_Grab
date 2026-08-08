@@ -51,4 +51,4 @@ https://mars.nasa.gov/mars2020/multimedia/raw-images/
 
 ## To-do:
 * Add a way to select all SOLs (Intentionally this time!) - This should be easyier since NASA's url API changed a little for SOLs a while back.
-* ~~Use CURL to download images? benefit to this is a timeout can be added.~~ - Rethinking about this.
+* Use CURL to download images, would allow for asynchronous downloads and possibly more features.
