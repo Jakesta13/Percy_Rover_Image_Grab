@@ -36,8 +36,8 @@ CAM-Select, replace with any of the following short codes:
 * SCMI - SuperCam Remote Micro Imager
 * LVSC - Lander Vision System Camera
 * SCS - Sample Caching System (CacheCam)
-* HNAV - Navigation Camera
-* HCOL - Color Camera
+* HNAV - Ingenuity's Navigation Camera
+* HCOL - Ingenuity's Color Camera
 
 I tried to make the camera codes as simple as possible, if you have any suggestions for clarity / simplicity please let me know in [Issues](https://github.com/Jakesta13/Percy_Rover_Image_Grab/issues) and I'll gladly take a look.
 ## Notes:
@@ -50,10 +50,5 @@ I tried to make the camera codes as simple as possible, if you have any suggesti
 https://mars.nasa.gov/mars2020/multimedia/raw-images/
 
 ## To-do:
-* Allow more flexibility with options (E.g select images per page if possible, and custom page count)
-* ~~Add a way to select ALL cameras (Good for getting all of the latest SOL images!).~~ - It works, but isn't pretty at the moment
-* Add a way to select all SOLs (Intentionally this time!)
-* Use CURL to download images? benefit to this is a timeout can be added.
-* Fix sol checking to not allow downloads from sols with partial matches (E.g 'sol3' somehow downloads images from sol349)
-* ~~Add new filter to show movie frames (Nasa added `&extended=product_id::ecv` to options)~~ This should work, appears to use the same variable as raw mode! So I added an option.
-* Add a catch to prevent conflicting options (Raw Mode! If you specifiy `color`, `raw`, and `vframes` it shouldn't allow that in the future.)
+* Add a way to select all SOLs (Intentionally this time!) - This should be easyier since NASA's url API changed a little for SOLs a while back.
+* ~~Use CURL to download images? benefit to this is a timeout can be added.~~ - Rethinking about this.
