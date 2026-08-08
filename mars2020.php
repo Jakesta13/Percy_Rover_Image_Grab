@@ -75,7 +75,7 @@ foreach ($argv as $arg) {
 		$sol = $m[1];
 	}
 	// Image Mode
-	if (preg_match('/^(raw|color)$/i', $arg, $m)) {
+	elseif (preg_match('/^(raw|color)$/i', $arg, $m)) {
 		$rawmode = strtolower($m[1]);
 	}
 	// Camera Codes
@@ -116,7 +116,7 @@ if ($sol === null) {
 // Prepare the search
 $search = "";
 if ($selected_cam !== 'ALL') {
-	$search = "&search=" . $cam[$selected_cam];
+	$search = "&search=" . $cams[$selected_cam]['api'];
 }
 
 $queryUrl = "{$base_url}&num=100{$search}&condition_2={$sol}:sol:gte&condition_3={$sol}:sol:lte&extended=sample_type::full,product_type::{$rawmode}";
@@ -154,7 +154,11 @@ for ($page = 0; $page < $totalPages; $page++) {
 	
 	foreach ($pageGrab['images'] as $img) {
 		$imageID = $img['imageid'];
-		$title = preg_replace('/[^A-Za-z0-9_]/', '', str_replace(' ', '_', $img['title']));
+		// Replace any character that does not match A-Z, a-z, 0-9, and underscores with a space (which is what preg_replace is doing)
+		// ^ inside the square brackets is to NOT match what is in the square brackets, basically like a whitelist.
+		// + is to look at the whole string instead of character by character, or else could end up with multiple spaces
+		// Also using trim to get rid of trailing spaces
+		$title = trim(preg_replace('/[^A-Za-z0-9_]+/', ' ', $img['title']), ' ');
 		
 		$saveDir = "{$base_dir}/{$title}";
 		if (!file_exists($saveDir)) {
