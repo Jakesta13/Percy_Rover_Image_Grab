@@ -1,6 +1,6 @@
 # Percy Rover Image Grabber
 This is a really rough script written in PHP.  
-It's probably poorly written*, but it does work.. as tested on a Raspberry Pi 4B and a ubuntu1~16.04.12 server.  
+It's probably poorly written*, but it does work.. as tested on a Ubuntu 24.04.3 LTS server with PHP 8.3.6.  
 Will update the code when I get more free time.
 
 Note that you should use the [Mars2020 site](https://mars.nasa.gov/mars2020/multimedia/raw-images/) while choosing what you want to download, as this doesn't grab what options are avaliable (yet?).  
